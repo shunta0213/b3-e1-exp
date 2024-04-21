@@ -1,0 +1,23 @@
+{
+  "name": "LaTeX Dev Container",
+  "build": {
+    "context": "..",
+    "dockerfile": "../docker/Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "james-yu.latex-workshop",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode-remote.remote-containers",
+        "yzhang.markdown-all-in-one",
+        "esbenp.prettier-vscode",
+        "taichi.vscode-textlint",
+        "GitHub.copilot",
+        "christian-kohler.path-intellisense"
+      ]
+    }
+  },
+  "postCreateCommand": "chmod +x .devcontainer/postCreate.sh && .devcontainer/postCreate.sh",
+  "remoteUser": "root"
+}

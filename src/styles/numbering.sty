@@ -1,0 +1,13 @@
+\makeatletter
+\renewcommand{\theequation}{% 式番号の付け方
+    \thesection.\arabic{equation}}
+\@addtoreset{equation}{section}
+
+\renewcommand{\thefigure}{% 図番号の付け方
+    \thesection.\arabic{figure}}
+\@addtoreset{figure}{section}
+
+\renewcommand{\thetable}{% 表番号の付け方
+    \thesection.\arabic{table}}
+\@addtoreset{table}{section}
+\makeatother

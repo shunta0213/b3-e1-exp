@@ -1,0 +1,19 @@
+{
+  "name": "my-latex-template",
+  "version": "1.0.0",
+  "scripts": {
+    "prepare": "pip install -r requirements.txt && pyenv rehash && pre-commit install",
+    "textlint": "textlint"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@proofdict/textlint-rule-proofdict": "^3.1.2",
+    "textlint": "^14.0.4",
+    "textlint-rule-ja-no-mixed-period": "^3.0.1",
+    "textlint-rule-preset-ja-spacing": "^2.3.1",
+    "textlint-rule-preset-ja-technical-writing": "^10.0.1",
+    "textlint-rule-preset-japanese": "^10.0.3",
+    "textlint-rule-spellcheck-tech-word": "^5.0.0"
+  }
+}

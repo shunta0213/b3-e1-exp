@@ -1,0 +1,45 @@
+\usepackage{luacode}
+
+\newcommand{\teacher}[1]{\def\theteacher{#1}}
+\newcommand{\experimentNumber}[1]{\def\theexperimentNumber{#1}}
+\newcommand{\dayGroup}[1]{\def\thedayGroup{#1}}
+\newcommand{\experimentDate}[1]{\def\theexperimentDate{#1}}
+\newcommand{\experimentSession}[1]{\def\theexperimentSession{#1}}
+\newcommand{\submissionDate}[1]{\def\thesubmissionDate{#1}}
+
+
+% read univ, dept, major from environment variable
+
+\makeatletter
+\renewcommand{\maketitle}{
+    \begin{titlepage}
+        \centering
+        \vspace*{1cm}
+        \Large{\textbf{\MakeUppercase{\@title}}}
+
+        \vspace{1.5cm}
+        \textbf{担当教員名:} \theteacher\\
+        \textbf{実験整理番号:} \theexperimentNumber\\
+        \textbf{曜日組:} \thedayGroup\\
+        \textbf{実験日:} \theexperimentDate\\
+        \textbf{実験回:} \theexperimentSession
+
+        \vspace{1.5cm}
+        \large{\@author}
+
+        \vspace{1cm}
+        \large{\@date}
+
+        \vspace{1.5cm}
+
+        \vfill
+        % TODO: fix
+        \directlua{tex.sprint(os.getenv("UNIV"))}
+        \vspace{0.5cm}
+        \directlua{tex.sprint(os.getenv("DEPT"))}
+        \vspace{0.5cm}
+        \directlua{tex.sprint(os.getenv("MAJOR"))}
+
+    \end{titlepage}
+}
+\makeatother

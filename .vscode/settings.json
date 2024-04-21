@@ -1,0 +1,60 @@
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace"
+  },
+  "files.insertFinalNewline": true,
+  // TeX Configs
+  "[tex]": {
+    "editor.defaultFormatter": "James-Yu.latex-workshop",
+    "editor.wordWrap": "on",
+    "editor.wrappingIndent": "indent"
+  },
+  "[latex]": {
+    "editor.defaultFormatter": "James-Yu.latex-workshop",
+    "editor.wordWrap": "on",
+    "editor.wrappingIndent": "indent"
+  },
+  "latex-workshop.latex.recipe.default": "lualatex",
+  "latex-workshop.bibtex-format.sort.enabled": true,
+  "latex-workshop.bibtex-format.align-equal.enabled": true,
+  // enable if you want to clean the aux files after build
+  // "latex-workshop.latex.autoClean.run": "onBuilt",
+  // "latex-workshop.latex.clean.subfolder.enabled": true,
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "lualatex",
+      "tools": ["lualatex"]
+    },
+    {
+      "name": "lualatex -> biber -> lualatex*2",
+      "tools": ["lualatex", "biber", "lualatex", "lualatex"]
+    }
+  ],
+  "latex-workshop.latex.outDir": "%DIR%/dist",
+  "latex-workshop.latex.tools": [
+    {
+      "name": "lualatex",
+      "command": "lualatex",
+      "args": [
+        "--cmdx",
+        "-file-line-error",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-output-directory=%OUTDIR%",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "biber",
+      "command": "biber",
+      "args": ["-output-directory=%OUTDIR%", "%DOCFILE%"]
+    }
+  ]
+}
