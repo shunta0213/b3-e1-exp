@@ -15,19 +15,19 @@
 
 
 \subsection{ポテンショメーターの原理}
-入力角度と出力角度を検出するための可変抵抗器の一種である。
+ポテンショメーターとは、入力角度と出力角度を検出するための可変抵抗器の一種である。
 ブラシが回転し得る全有効回転角度を$\Theta$、
 抵抗線の両端に印加する電圧を$E$とすると、
 回転軸からの入力角度$\theta$に対して、
 ポテンショメーターから出力する電圧$e$は、
 \begin{equation}\label{eq:potentiometer}
-    e = E \frac{\theta}{\Theta}
+	e = E \frac{\theta}{\Theta}
 \end{equation}
 となる。
 入力・出力の2台のポテンショメーターからの電圧による偏差電圧$e$
 は次の図\ref{fig:potentio-meter-detection}のように接続することで、
 \begin{equation}
-    e = \dfrac{E}{\Theta} (\theta_1 - \theta_2)
+	e = \dfrac{E}{\Theta} (\theta_1 - \theta_2)
 \end{equation}
 として得られ、
 入力軸と出力軸の差に応じた電圧が得られる。
@@ -35,13 +35,13 @@
 
 2台のポテンショメーターの印加電圧が異なる場合も、
 \begin{equation}
-    e = \dfrac{E_1}{\Theta} \theta_1 - \dfrac{E_2}{\Theta} \theta_2
+	e = \dfrac{E_1}{\Theta} \theta_1 - \dfrac{E_2}{\Theta} \theta_2
 \end{equation}
 として得られる。
 偏差電圧が0となってモーターが停止するときを考えると、
 \begin{align*}
-    e        & = 0                         \\
-    \theta_2 & = \dfrac{E_1}{E_2} \theta_1
+	e        & = 0                         \\
+	\theta_2 & = \dfrac{E_1}{E_2} \theta_1
 \end{align*}
 のようになり、入力した所望角度の$E_1/E_2$倍だけ回転し停止することになる。
 
@@ -57,26 +57,26 @@
 本実験で用いるサーボモーターの特性関数を示す。
 モーターの操作電圧を$e_c(t)$、モーターの回転速度を$\dot{\theta}(t)$とすると、
 \begin{equation}
-    T \odv{\dot{\theta}(t)}{t} + \dot{\theta}(t) = k_m e_c(t)
+	T \odv{\dot{\theta}(t)}{t} + \dot{\theta}(t) = k_m e_c(t)
 \end{equation}
 これを各辺をLaplace変換して、
 \begin{align}
-    \left(TS + 1\right) \Theta(s) & = k_m E_c(s) \nonumber       \\
-    \Theta(s)                     & = \dfrac{k_m}{TS + 1} E_c(s)
+	\left(TS + 1\right) \Theta(s) & = k_m E_c(s) \nonumber       \\
+	\Theta(s)                     & = \dfrac{k_m}{TS + 1} E_c(s)
 \end{align}
 で、一次遅れ系となる。
 ここで、ゲイン$k_m$、時定数$T$は次のように表される。
 \begin{align*}
-    k_m & = \dfrac{k_t}{R_a \left( D_m + \dfrac{k_t k_v}{R_a} \right)} \left( \approx \dfrac{1}{k_v} \right) \\
-    T   & = \dfrac{J_m}{D_m + \dfrac{k_t k_v}{R_a}} \left( \approx \dfrac{J_m R_a}{k_t k_v} \right)
+	k_m & = \dfrac{k_t}{R_a \left( D_m + \dfrac{k_t k_v}{R_a} \right)} \left( \approx \dfrac{1}{k_v} \right) \\
+	T   & = \dfrac{J_m}{D_m + \dfrac{k_t k_v}{R_a}} \left( \approx \dfrac{J_m R_a}{k_t k_v} \right)
 \end{align*}
 但し、
 \begin{align*}
-    k_t & : \text{トルク定数}      \\
-    k_v & : \text{速度定数}       \\
-    R_a & : \text{電機子巻線抵抗}    \\
-    J_m & : \text{電機子慣性モーメント} \\
-    D_m & : \text{電機制動係数}
+	k_t & : \text{トルク定数}      \\
+	k_v & : \text{速度定数}       \\
+	R_a & : \text{電機子巻線抵抗}    \\
+	J_m & : \text{電機子慣性モーメント} \\
+	D_m & : \text{電機制動係数}
 \end{align*}
 である。
 さらに、モーターの駆動する回転体物体が歯車比$n$の歯車列を介して
@@ -84,7 +84,7 @@
 その負荷感性モーメントが$J_i$であるならば、
 電機子軸に換算した全慣性モーメント
 \begin{equation}
-    J_{m}' = J_m + \dfrac{1}{n^2} J_i
+	J_{m}' = J_m + \dfrac{1}{n^2} J_i
 \end{equation}
 を$J_m$の代わりに用いる。
 サーボ増幅器にサーボモーターを接続したブロック線図を
@@ -98,20 +98,20 @@
 
 SW2をOFFのとき、すなわち外側のフィードバックのみが働くときのサーボ機構全体での特性関数は、$K=k_a k_m$として、
 \begin{align}
-    \Theta_2                                                        & = \dfrac{1}{s} \dfrac{K}{1+TS} e_p \nonumber                                                   \\
-                                                                    & = \dfrac{1}{s} \dfrac{K}{1+TS} k_p\left( k_1\Theta_1 - k_2 \Theta_2 \right) \nonumber          \\
-    \left( 1 + \dfrac{1}{s}\dfrac{K k_p k_2}{1+TS} \right) \Theta_2 & = \dfrac{1}{s} \dfrac{K k_p k_1}{1+TS} \Theta_1 \nonumber                                      \\
-    \Theta_2                                                        & = \dfrac{k_1}{k_2} \dfrac{K k_p k_2 / T}{s^2 + \dfrac{1}{T}s +\dfrac{K k_p k_2}{T}} \Theta_1 .
+	\Theta_2                                                        & = \dfrac{1}{s} \dfrac{K}{1+TS} e_p \nonumber                                                   \\
+	                                                                & = \dfrac{1}{s} \dfrac{K}{1+TS} k_p\left( k_1\Theta_1 - k_2 \Theta_2 \right) \nonumber          \\
+	\left( 1 + \dfrac{1}{s}\dfrac{K k_p k_2}{1+TS} \right) \Theta_2 & = \dfrac{1}{s} \dfrac{K k_p k_1}{1+TS} \Theta_1 \nonumber                                      \\
+	\Theta_2                                                        & = \dfrac{k_1}{k_2} \dfrac{K k_p k_2 / T}{s^2 + \dfrac{1}{T}s +\dfrac{K k_p k_2}{T}} \Theta_1 .
 \end{align}
 \begin{equation}\label{eq:characteristic-function-parameters}
-    \begin{split}
-        \omega & = \sqrt{\dfrac{K k_p k_2}{T}}    \\
-        \zeta  & = \dfrac{1}{2\sqrt{K k_2 k_p T}}
-    \end{split}
+	\begin{split}
+		\omega & = \sqrt{\dfrac{K k_p k_2}{T}}    \\
+		\zeta  & = \dfrac{1}{2\sqrt{K k_2 k_p T}}
+	\end{split}
 \end{equation}
 として、
 \begin{equation}\label{eq:characteristic-function}
-    \Theta_2 = \dfrac{k_1}{k_2} \dfrac{\omega^2}{s^2 + 2\zeta\omega s + w^2} \Theta_1
+	\Theta_2 = \dfrac{k_1}{k_2} \dfrac{\omega^2}{s^2 + 2\zeta\omega s + w^2} \Theta_1
 \end{equation}
 とかける。
 ここで、$\omega$は固有振動数、$\zeta$は減衰係数と呼ばれる。
@@ -122,17 +122,17 @@ $\omega$を大きく使用とすると、$\zeta$が小さくなりすぎるな�
 
 そこで、SW2をONにし、内側のフィードバックも働かせたときの全体の特性関数は
 \begin{align}\label{eq:characteristic-function2}
-    \Theta_2                                                                       & = \dfrac{1}{s} \dfrac{K}{1+TS} \left(e_p - ks\Theta_2\right) \nonumber                     \\
-    \left\{ 1 + \dfrac{1}{s}\dfrac{K}{1+TS}\left(k_pk_2+ks\right) \right\}\Theta_2 & = \dfrac{1}{s} \dfrac{K}{1+TS} k_p k_1 \Theta_1 \nonumber                                  \\
-    \Theta_2                                                                       & = \dfrac{K k_p k_1 / T}{s^2 + \dfrac{1 + Kk}{T}s + \dfrac{Kk_p k_2}{T}} \Theta_1 \nonumber \\
-    \Theta_2                                                                       & = \dfrac{k_1}{k_2} \dfrac{\omega^2}{s^2 + 2\zeta\omega s + \omega^2} \Theta_1
+	\Theta_2                                                                       & = \dfrac{1}{s} \dfrac{K}{1+TS} \left(e_p - ks\Theta_2\right) \nonumber                     \\
+	\left\{ 1 + \dfrac{1}{s}\dfrac{K}{1+TS}\left(k_pk_2+ks\right) \right\}\Theta_2 & = \dfrac{1}{s} \dfrac{K}{1+TS} k_p k_1 \Theta_1 \nonumber                                  \\
+	\Theta_2                                                                       & = \dfrac{K k_p k_1 / T}{s^2 + \dfrac{1 + Kk}{T}s + \dfrac{Kk_p k_2}{T}} \Theta_1 \nonumber \\
+	\Theta_2                                                                       & = \dfrac{k_1}{k_2} \dfrac{\omega^2}{s^2 + 2\zeta\omega s + \omega^2} \Theta_1
 \end{align}
 となり、
 \begin{equation}\label{eq:characteristic-function2-parameters}
-    \begin{split}
-        \omega & = \sqrt{\dfrac{K k_p k_2}{T}}    \\
-        \zeta  & = \dfrac{1+Kk}{2\sqrt{Kk_2k_pT}}
-    \end{split}
+	\begin{split}
+		\omega & = \sqrt{\dfrac{K k_p k_2}{T}}    \\
+		\zeta  & = \dfrac{1+Kk}{2\sqrt{Kk_2k_pT}}
+	\end{split}
 \end{equation}
 である。
 \ref{eq:characteristic-function-parameters}式と異なり、
