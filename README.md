@@ -1,8 +1,8 @@
-# My LaTeX Project Templates
+# B3 E1 Theme Experiment
 
-Use with Visual Studio Code, Dev Container
+## Branch
 
-Features
-- lualatex
-- some pre-defined sections
-- pre-commit hook to format, lint, etc.
+- yoshu
+  予習課題
+- main
+  レポート
