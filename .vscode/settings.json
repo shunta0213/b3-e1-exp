@@ -12,14 +12,15 @@
   // TeX Configs
   "[tex]": {
     "editor.defaultFormatter": "James-Yu.latex-workshop",
-    "editor.wordWrap": "on",
     "editor.wrappingIndent": "indent"
   },
   "[latex]": {
     "editor.defaultFormatter": "James-Yu.latex-workshop",
-    "editor.wordWrap": "on",
     "editor.wrappingIndent": "indent"
   },
+  "textlint.autoFixOnSave": true,
+  "textlint.run": "onSave",
+
   "latex-workshop.latex.recipe.default": "lualatex",
   "latex-workshop.bibtex-format.sort.enabled": true,
   "latex-workshop.bibtex-format.align-equal.enabled": true,
@@ -56,5 +57,7 @@
       "command": "biber",
       "args": ["-output-directory=%OUTDIR%", "%DOCFILE%"]
     }
-  ]
+  ],
+  "textlint.configPath": "",
+  "textlint.nodePath": "node_modules"
 }
