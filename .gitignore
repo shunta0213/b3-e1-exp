@@ -12,7 +12,7 @@ venv
 .DS_Store
 
 # latexindent
-*.bak0
+*.bak*
 
 
 ## Core latex/pdflatex auxiliary files:

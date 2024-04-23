@@ -12,7 +12,7 @@
         "min_interval": 1
       },
       "sentence-length": {
-        "max": 100
+        "max": 150
       },
       "no-dropping-the-ra": true,
       "no-mix-dearu-desumasu": true,
