@@ -14,7 +14,8 @@
         "esbenp.prettier-vscode",
         "taichi.vscode-textlint",
         "GitHub.copilot",
-        "christian-kohler.path-intellisense"
+        "christian-kohler.path-intellisense",
+        "draivin.hsnips"
       ]
     }
   },

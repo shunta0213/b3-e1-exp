@@ -1,0 +1,93 @@
+\documentclass[../../../main]{subfiles}
+\begin{document}
+
+\section{結果}\label{sec:result}
+
+\subsection{実験1の結果}
+実験1で撮影したオシロスコープの波形を図\ref{fig:oscilloscope-raw}に示す。
+この図をもとに、波形を抽出したものを図\ref{fig:oscilloscope-each}に示す。
+
+\clearpage
+\subsection{実験2の結果}
+実験2で撮影したオシロスコープの波形は図\ref{fig:time-constant}に示す。
+この図から$t=T$、すなわちゲインの$1-e^{-1}\approx63.2\%$となる時刻を読み取ると、
+\SI{95}{\milli\sec}、\SI{98}{\milli\sec}、\SI{95}{\milli\sec}であった。
+これらを平均して、$T = \SI{96}{\milli\sec}$と得られた。
+
+\clearpage
+\subsection{実験3の結果}
+実験3で測定した、あるPゲインに対する$e$、$e_p$の値、
+$e_p = k_p e$より計算される$k_p$の値を次の表\ref{tab:e-ep}に示す。
+\input{src/tables/e-ep/e-ep.tex}
+この値をもとに$P$に対する$e$、$e_p$の関係を\ref{fig:e-e_p-relation}に示す。
+それぞれ原点を通る直線で近似したものと、一次関数で近似したものを示している。
+ここでは、得られた実験値に近いものとして、
+$P=60$のとき、$e_p = 8.58e + 1.23$、
+$P-80$のとき、$e_p = 11.93e + 1.32$、
+$P=100$のとき、$e_p = 213.97e + 1.62$
+とする。
+\input{src/figures/e-e_p-relation/e-e_p-relation.tex}
+
+さらに、$P$に対する$e_p$と計測した$\dot{\theta_2}$の関係を表\ref{tab:theta_dot-e_p-relation}に示す。
+なお、$\Xi_2$は計測時、回転体についていた4つの印を回転速度系にて計測した値であり、
+$\dot{\theta_2} = \Xi_2 \dfrac{2\pi}{60}$の関係にある。
+また、$K$は定常状態において、$\dot{\theta_2} = K e_p$の関係にあり、\si{\radian\per\sec\per\volt}の単位を持つ。
+\input{src/tables/theta_dot-e_p-relation/theta_dot-e_p-relation.tex}
+これをもとに、$P$に対する$e_p$と$\dot{\theta_2}$の関係を図\ref{fig:theta_dot-e_p-relation}に示す。
+$e$と、$e_p$の関係と同様に、それぞれ原点を通る直線で近似したものと、一次関数で近似したものを示している。
+$K$の値は表やグラフからもわかる様に$P$によってほぼ変わらず、
+また、切片の値も小さいことから$\dot{\theta_2}=K e_p$とかけるする。
+各$P$で平均をとって$K=\SI{0.85}{\radian\per\sec\per\volt}$とする。
+\input{src/figures/theta_dot-e_p-relation/theta_dot-e_p-relation.tex}
+
+
+最後に、$P$を固定し、$D$を変化させそれに対する$e$, $\dot{\theta_2}$, $e_t$と
+$e_t = k \dot{\theta_2}$で計算される$k$の値を表\ref{tab:theta_dot-e_t-relation}に示す。
+\input{src/tables/theta_dot-e_t-relation/theta_dot_e_t-relation.tex}
+この表から、$D$に対する$e_t$と$\dot{\theta_2}$の関係を図\ref{fig:theta_dot-e_t-relation}に示す。
+\input{src/figures/theta_dot-e_t-relation/theta_dot-e_t-relation.tex}
+これまでと同様に、それぞれ原点を通る直線で近似したものと、一次関数で近似したものを示している。
+$k_p$と同様に実験値に近い方として一次関数による近似を採用し、
+$D=60$のとき、$e_t = 0.50\dot{\theta_2} + 0.11$
+$D=80$のとき、$e_t = 0.74\dot{\theta_2} + 0.46$
+$D=100$のとき、$e_t = 1.23\dot{\theta_2} + 0.64$
+とする。
+
+\clearpage
+\subsection{実験1, 2, 3からの結果}
+以上の結果をまとめるともとまったパラメータ次のようになる。
+\begin{equation}\label{eq:parameter-result}
+    \begin{split}
+        k1  & = \SI{0.0668}{\volt\per\radian}       \\
+        k2  & = \SI{0.334}{\volt\per\radian}        \\
+        T   & = \SI{96}{\milli\sec}                 \\
+        K   & = \SI{0.85}{\radian\per\sec\per\volt} \\
+        e_p & = \left\{
+        \begin{alignedat}{3}
+            8.58e + 1.23   & \quad (P=60)  \\
+            11.93e + 1.32  & \quad (P=80)  \\
+            213.97e + 1.62 & \quad (P=100) \\
+        \end{alignedat}
+        \right.                                     \\
+        e_t & = \left\{
+        \begin{alignedat}{3}
+            0.50\dot{\theta_2} + 0.11 & \quad (D=60)  \\
+            0.74\dot{\theta_2} + 0.46 & \quad (D=80)  \\
+            1.23\dot{\theta_2} + 0.64 & \quad (D=100) \\
+        \end{alignedat}
+        \right.
+    \end{split}
+\end{equation}
+また\ref{eq:characteristic-function-parameters}式、
+\ref{eq:characteristic-function2-parameters}式より
+実験1の各場合で$\omega$、$\zeta$を求めると、次の表\ref{tab:omega}、\ref{tab:zeta}のようになる。
+\input{src/tables/omega/omega.tex}
+\input{src/tables/zeta/zeta.tex}
+
+
+
+
+
+
+
+\end{document}

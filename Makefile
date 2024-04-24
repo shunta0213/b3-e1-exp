@@ -10,5 +10,5 @@ venv:
 
 .PHONY: clean
 clean:
-	@find . -type f -name "*.bak0" -exec rm {} +
+	@find . -type f -name "*.bak*" -exec rm {} +
 	@find . -type f -name "indent.log" -exec rm {} +
