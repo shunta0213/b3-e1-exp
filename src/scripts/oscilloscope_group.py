@@ -27,6 +27,8 @@ def plot_grouped_by(directory, group_by='p'):
             data_groups[key] = []
         data_groups[key].append(filename)
 
+    print(data_groups)
+
     # 各グループに対してプロットする
     for key, files in data_groups.items():
         plt.figure(figsize=(8, 6))
