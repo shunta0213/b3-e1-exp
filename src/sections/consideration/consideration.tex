@@ -1,0 +1,50 @@
+\documentclass[../../../main]{subfiles}
+\begin{document}
+
+\section{考察}\label{sec:consideration}
+
+\subsection{P制御とPD制御}
+
+図\ref{fig:oscilloscope-each}より
+各$P$、$D$ごとに波形を重ねて書いたものを図\ref{fig:oscilloscope-grouped-p}、\ref{fig:oscilloscope-grouped-d}に示す。
+\input{src/figures/oscilloscope-grouped/oscilloscope-grouped.tex}
+
+図\ref{fig:oscilloscope-grouped-d}から、
+ある$D$に対して、$P=60$、$P=80$、$P=100$と大きくなるにつれオーバーシュートが発生し、
+オーバーシュート量も大きくなっている。
+これは、2次遅れ系の式\ref{eq:characteristic-function}または\ref{eq:characteristic-function2}で表される
+分母多項式はともに$s^2+2\zeta\omega s+\omega^2$であり、
+極は$s=-\zeta\omega \pm \omega \sqrt{\zeta^2-1}$なる。
+したがって、$\zeta\geq1$のとき2次遅れ系の極は実数で振動せず0に収束している一方で、
+$\zeta<1$のときは2次遅れ系の極が虚数となり逆ラプラス変換したときに減衰振動となるため、
+オーバーシュートが発生していると考えられる。
+実際、表\ref{tab:zeta}からもわかる様に、
+$\zeta<1$のときである、
+$(P, D) = (80, 0), (100, 0), (100, 60), (100, 80), (100, 100)$
+のときにオーバーシュートが発生している。
+また、図\ref{fig:oscilloscope-grouped-p}から、
+ある$P$に対して$D$を大きくすると、
+上記のようにオーバーシュート量が小さくなる一方で速応性が下がり遅れるとわかる。
+
+
+伝達関数が\ref{eq:characteristic-function}、\ref{eq:characteristic-function2}式で表されるとき、
+$\zeta=0.2, 0.5, 1.0, 1.5, 2.0$に対して、$\omega=5, 6, 25$として変化させ、
+ボード線図とステップ応答をシミュレーションしたものを次に示す。
+\footnote{
+	シミュレーションに使用したコードは\url{https://github.com/shunta0213/b3-e1-exp/tree/main/src/scripts}にある。
+}
+図\ref{fig:bode-phase-step-ideal-group-omega}は$\omega$ごとにまとめたもの、
+図\ref{fig:bode-phase-step-ideal-group-real}は$D$が一定となるような$\omega$、$\zeta$の組についてまとめたものである。
+この理想的なステップ応答と実験の結果を比較すると、
+$\omega$一定で$\zeta$が大きくなる、すなわち$P$一定で$D$を大きくすると
+オーバーシュート量が小さくなり、速応性が下がるという点で整合している。
+一方で、$D$一定として$P$を変化させたときは、
+図\ref{fig:bode-phase-step-ideal-group-real}から$P$を大きくすると
+速応性が上がるはずであるが、
+図\ref{fig:oscilloscope-grouped-d}では$P$を大きくしても速応性が上がっていない。
+
+
+\input{src/figures/bode-phase-step-ideal-group-omega/bode-phase-step-ideal-group-omega.tex}
+\input{src/figures/bode-phase-step-ideal-group-real/bode-phase-step-ideal-group-real.tex}
+
+\end{document}
